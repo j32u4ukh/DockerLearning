@@ -1,7 +1,9 @@
-FROM node:8.16.1
+FROM golang:1.15.7-alpine3.13 
 
-RUN mkdir /src
+WORKDIR /go/src 
 
-COPY helo.js /src
+ADD . /go/src 
 
-CMD ["node", "/src/helo.js"]
+RUN cd /go/src && go build -o main 
+
+CMD ["/go/src/main"]
