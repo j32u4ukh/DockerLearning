@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  myweb:
+    build: .
+    ports:
+    - "8088:5000"
+    volumes:
+    - .:/app
+    privileged: true
